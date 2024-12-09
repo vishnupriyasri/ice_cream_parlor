@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ice Cream Parlor</h1>
+        
+        <section id="add-user">
+            <h2>Add User</h2>
+            <form id="user-form">
+                <input type="text" id="user-name" placeholder="Enter your name" required>
+                <input type="email" id="user-email" placeholder="Enter your email" required>
+                <button type="submit">Add User</button>
+            </form>
+        </section>
+
+        <section id="add-to-cart">
+            <h2>Flavors</h2>
+            <div id="flavors-list"></div>
+            <div>
+                <input type="number" id="user-id" placeholder="Enter User ID" required>
+                <input type="number" id="flavor-id" placeholder="Enter Flavor ID" required>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+        </section>
+
+        <section id="view-cart">
+            <h2>Your Cart</h2>
+            <button onclick="viewCart()">View Cart</button>
+            <ul id="cart-items"></ul>
+        </section>
+
+        <section id="add-suggestion">
+            <h2>Suggest a Flavor</h2>
+            <textarea id="suggestion-text" placeholder="Write your flavor suggestion"></textarea>
+            <button onclick="addSuggestion()">Add Suggestion</button>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

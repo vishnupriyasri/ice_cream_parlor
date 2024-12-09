@@ -19,6 +19,45 @@ def create_tables():
     )
     ''')
 
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS flavors (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        description TEXT,
+        seasonal BOOLEAN
+    )
+    ''')
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS ingredients (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        allergy_concerns TEXT
+    )
+    ''')
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS cart (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        flavor_id INTEGER,
+        FOREIGN KEY (flavor_id) REFERENCES flavors(id),
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+    ''')
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS suggestions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        suggestion TEXT,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+    ''')
+
+    conn.commit()
+    conn.close()
+
 def add_user(name, email):
     conn = create_connection()
     cursor = conn.cursor()
